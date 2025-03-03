@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
 
         if (!user || !(await bcrypt.compare(data.password, user.password))) {
             return NextResponse.json({
-                message: 'Invalid username or password',
+                message: 'Nieprawidłowa nazwa użytkownika lub hasło',
             }, {
                 status: 401,
             });

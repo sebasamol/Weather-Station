@@ -1,8 +1,10 @@
 import Image from "next/image";
+import ActualWeather from "./components/ActualWeather/ActualWeather";
+
 export default function Home() {
   return (
     <div>
-      <h1>Main page</h1>
+      <ActualWeather />
     </div>
   );
 }
