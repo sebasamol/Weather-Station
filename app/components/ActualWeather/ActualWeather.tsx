@@ -2,6 +2,8 @@ import React from 'react';
 import WeatherStatus from '../WeatherStatus/WeatherStatus';
 import DailyForecast from '../DailyForecast/DailyForecast';
 import AirQuality from '../AirQuality/AirQuality';
+import HomeData from '../HomeData/HomeData';
+
 export default function ActualWeather() {
     return (
         <main className="min-h-screen p-8">
@@ -16,8 +18,10 @@ export default function ActualWeather() {
                     </div>
                     <div className="flex-2">
                         <AirQuality />
+                        <HomeData />
                     </div>
                 </div>
+                
             </div>
         </main>
     );
