@@ -29,7 +29,7 @@ export default async function DailyForecast() {
     const weatherCodes = data.daily.weather_code;
     const dates = data.daily.time.map((dateString: string) => new Date(dateString).toLocaleDateString([], { day: '2-digit', month: '2-digit' }));
     return (
-        <div className='flex flex-row gap-4 max-w-lg mx-auto p-4 '>
+        <div className='flex flex-row gap-3 max-w-lg p-4 '>
             {weatherCodes.map((code: number, index: number) => {
                 const found = WEATHER_CODES.find((element) => element.code === code);
                 return found ? (

@@ -15,6 +15,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Stacja pogodowa",
   description: "Weather Station",
+  icons: {
+    icon: {
+      url: "/station.png",
+      type: "image/png",
+    },
+    shortcut: { url: "/station.png", type: "image/png" },
+  },
 };
 
 export default function RootLayout({

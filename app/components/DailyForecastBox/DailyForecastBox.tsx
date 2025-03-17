@@ -12,7 +12,7 @@ interface DailyForecastBoxProps {
 export default function DailyForecastBox({ date, weather_code, temperature_min, temperature_max, precipitation }: DailyForecastBoxProps) {
 
     return (
-        <div className='flex flex-col items-center p-1.5 bg-white/10 backdrop-blur-md rounded-lg'>
+        <div className='flex flex-col items-center p-1.5 bg-white/10 backdrop-blur-md rounded-lg border-2 border-white/5'>
             <div className='text-base font-semibold mb-1.5'>
                 {date}
             </div>
@@ -21,7 +21,7 @@ export default function DailyForecastBox({ date, weather_code, temperature_min, 
                     <Image src={weather_code} alt="weather_code" width={32} height={32} />
                 </div>
                 <div className='flex flex-col items-center'>
-                    <div className='text-base font-medium'>
+                    <div className='text-s font-medium'>
                         {temperature_max}°C
                     </div>
                     <div className='text-xs text-gray-300'>
