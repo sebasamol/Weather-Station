@@ -1,11 +1,11 @@
-import Image from "next/image";
 import ActualWeather from "./components/ActualWeather/ActualWeather";
-import HomeData from "./components/HomeData/HomeData";
+import HourlyForecast from "./components/HourlyForecast/HourlyForecast";
+
 export default function Home() {
   return (
-    <div>
+    <div className="flex flex-col items-center justify-center min-h-screen">
       <ActualWeather />
-      <HomeData />
+      <HourlyForecast />
     </div>
   );
 }

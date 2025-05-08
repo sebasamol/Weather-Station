@@ -8,9 +8,8 @@ export async function getData() {
             throw new Error('API_CURRENT_WEATHER environment variable is not defined');
         }
 
-        const res = await fetch(process.env.API_CURRENT_WEATHER, {
-            cache: 'no-store',
-        })
+        const res = await fetch(process.env.API_CURRENT_WEATHER)
+        
 
         if (!res.ok) {
             throw new Error('Failed to fetch weather data')
@@ -40,14 +39,14 @@ export function WeatherStatusClient({ data }: { data: any }) {
                     className="drop-shadow-lg"
                 />
                 <p className="text-4xl font-bold">
-                    {data.current.temperature_2m}°C
+                    {Math.round(data.current.temperature_2m)}°C
                 </p>
                 <div className="flex flex-col ml-2">
                     <p className="text-xs font-medium">
                         {found.description}
                     </p>
                     <p className="text-[12px] text-gray-300">
-                        Temperatura odczuwalna {data.current.apparent_temperature}°C
+                        Temperatura odczuwalna {Math.round(data.current.apparent_temperature)}°C
                     </p>
                 </div>
             </div>

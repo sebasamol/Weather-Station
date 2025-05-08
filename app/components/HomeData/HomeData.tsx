@@ -34,11 +34,11 @@ export function HomeDataClient({ data }: { data: any }) {
                 />
                 <div className="flex items-center gap-3">
                     <span className="text-lg font-medium text-gray-200">Temperatura:</span>
-                    <span className="text-3xl font-bold">{data.current.temperature_2m}°C</span>
+                    <span className="text-3xl font-bold">{Math.round(data.current.temperature_2m)}°C</span>
                 </div>
                 <div className="flex items-center gap-3">
                     <span className="text-lg font-medium text-gray-200">Wilgotność:</span>
-                    <span className="text-3xl font-bold">{data.current.relative_humidity_2m}%</span>
+                    <span className="text-3xl font-bold">{Math.round(data.current.relative_humidity_2m)}%</span>
                 </div>
             </div>
         </div>

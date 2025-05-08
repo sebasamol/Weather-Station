@@ -1,5 +1,4 @@
 import React from "react";
-import Image from 'next/image'
 import DailyForecastBox from "../DailyForecastBox/DailyForecastBox";
 import { WEATHER_CODES } from '../../../utility/weatherCodes'
 
@@ -9,9 +8,7 @@ async function getData() {
             throw new Error('API_CURRENT_WEATHER environment variable is not defined');
         }
 
-        const res = await fetch(process.env.API_FORECAST_WEATHER, {
-            cache: 'no-store',
-        })
+        const res = await fetch(process.env.API_FORECAST_WEATHER)
 
         if (!res.ok) {
             throw new Error('Failed to fetch weather data')
@@ -37,8 +34,8 @@ export default async function DailyForecast() {
                         key={index}
                         date={dates[index]}
                         weather_code={found.icon}
-                        temperature_min={data.daily.temperature_2m_min[index]}
-                        temperature_max={data.daily.temperature_2m_max[index]}
+                        temperature_min={Math.round(data.daily.temperature_2m_min[index])}
+                        temperature_max={Math.round(data.daily.temperature_2m_max[index])}
                         precipitation={data.daily.precipitation_probability_max[index]}
                     />
                 ) : null;

@@ -24,7 +24,7 @@ async function getData(): Promise<AirQualityData> {
         }
 
         const res = await fetch(process.env.API_AIR_QUALITY, {
-            cache: 'no-store',
+            
             headers: {
                 'Accept': 'application/json',
             },
