@@ -33,6 +33,7 @@ const optionsChart = {
                 size: 16,
                 stepSize: 1,
             }
+
         },
         y: {
             border: {
@@ -54,16 +55,23 @@ const optionsChart = {
     }
 };
 
-interface HourlyChartProps {
-    label: string;
-    borderColor: string;
-    bgColor: string;
+interface DoubleHourlyChartProps {
+    labelFirst: string;
+    labelSecond: string;
+    borderColorFirst: string;
+    borderColorSecond: string;
+    bgColorFirst: string;
+    bgColorSecond: string;
     xKey: string[];
-    yKey: string[];
+    yKeyFirst: string[];
+    yKeySecond: string[];
     options?: object;
 }
 
-export default function HourlyChart({ label, borderColor, bgColor, xKey, yKey, options = optionsChart }: HourlyChartProps) {
+export default function DoubleHourlyChart({
+    labelFirst, labelSecond, borderColorFirst, borderColorSecond, bgColorFirst, bgColorSecond, xKey, yKeyFirst, yKeySecond, 
+    options = optionsChart
+}: DoubleHourlyChartProps) {
 
     const formattedXKey = Array.isArray(xKey)
         ? xKey.map((time: string) => {
@@ -72,8 +80,17 @@ export default function HourlyChart({ label, borderColor, bgColor, xKey, yKey, o
         })
         : [];
 
-    const formattedYKey = Array.isArray(yKey)
-        ? yKey.map((value: string | number) => {
+    const formattedYKeyFirst = Array.isArray(yKeyFirst)
+        ? yKeyFirst.map((value: string | number) => {
+            if (typeof value === 'string') {
+                return parseFloat(value);
+            }
+            return value;
+        })
+        : [];
+
+    const formattedYKeySecond = Array.isArray(yKeySecond)
+        ? yKeySecond.map((value: string | number) => {
             if (typeof value === 'string') {
                 return parseFloat(value);
             }
@@ -85,27 +102,36 @@ export default function HourlyChart({ label, borderColor, bgColor, xKey, yKey, o
         labels: formattedXKey,
         datasets: [
             {
-                label: label,
-                backgroundColor: bgColor,
-                borderColor: borderColor,
+                label: labelFirst,
+                backgroundColor: bgColorFirst,
+                borderColor: borderColorFirst,
                 pointBorderColor: '#2E86C1',
                 pointBackgroundColor: '#27AE60',
                 pointHoverBackgroundColor: '#E74C3C',
                 pointHoverBorderColor: '#8E44AD',
-                data: formattedYKey,
+                data: formattedYKeyFirst,
                 tension: 0.3,
                 pointRadius: 5.5,
             },
+            {
+                label: labelSecond,
+                backgroundColor: bgColorSecond,
+                borderColor: borderColorSecond,
+                pointBorderColor: '#2E86C1',
+                pointBackgroundColor: '#27AE60',
+                pointHoverBackgroundColor: '#E74C3C',
+                pointHoverBorderColor: '#8E44AD',
+                data: formattedYKeySecond,
+                tension: 0.3,
+                pointRadius: 5.5,
+            }
+
         ],
     };
 
     return (
         <div>
-            <Chart
-                type="line"
-                data={data}
-                options={options}
-            />
+            <Chart type="line" data={data} options={options} />
         </div>
     );
-};
+}

@@ -1,11 +1,11 @@
 import ActualWeather from "./components/ActualWeather/ActualWeather";
-import HourlyForecast from "./components/HourlyForecast/HourlyForecast";
+import ForecastChartsPanel from "./components/ForecastChartsPanel/ForecastChartsPanel";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen">
+    <div className="flex flex-col items-center  min-h-screen">
       <ActualWeather />
-      <HourlyForecast />
+      <ForecastChartsPanel />
     </div>
   );
 }

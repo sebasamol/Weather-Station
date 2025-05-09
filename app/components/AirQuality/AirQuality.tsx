@@ -82,32 +82,31 @@ export function AirQualityClient({ data }: { data: any }) {
 
     return (
         <div className='max-w-md mx-auto'>
-
-            <div className='grid grid-cols-4 gap-2 '>
+            <div className='grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-2'>
                 {AIR_QUALITY_PARAMS.map(param => {
                     const value = data.current[param.key];
                     const color = getColor(param.key, value);
 
                     return (
-                        <div key={param.id} className='bg-white/10 backdrop-blur-md rounded-lg p-2 max-w-[100px] border-2 border-white/5'>
+                        <div key={param.id} className='bg-white/10 backdrop-blur-md rounded-lg p-2 w-full border-2 border-white/5'>
                             <div className='flex flex-col gap-0.5'>
-                                <div className='flex items-center gap-2'>
-                                    <span className='text-s font-medium'>{param.name}</span>
+                                <div className='flex items-center gap-1 sm:gap-2'>
+                                    <span className='text-xs sm:text-s font-medium'>{param.name}</span>
                                     <span className='cursor-help'>
-                                        <Image src={'/question.png'} alt='info' width={10} height={10} />
+                                        <Image src={'/question.png'} alt='info' width={12} height={12} className='sm:w-4 sm:h-4' />
                                     </span>
                                 </div>
                                 <div className='flex items-baseline gap-1'>
-                                    <span className='text-[16px] font-bold' style={{ color }}>{value}</span>
-                                    <span className='text-[12px] text-gray-300'>{param.unit}</span>
+                                    <span className='text-[14px] sm:text-[16px] font-bold' style={{ color }}>{value}</span>
+                                    <span className='text-[10px] sm:text-[12px] text-gray-300'>{param.unit}</span>
                                 </div>
                             </div>
                         </div>
                     );
                 })}
             </div>
-            <div className='mt-4 text-center'>
-                <div className='text-xs text-gray-400 italic'>
+            <div className='mt-2 sm:mt-4 text-center'>
+                <div className='text-[10px] sm:text-xs text-gray-400 italic'>
                     <span>Stan na godzinę </span>
                     <span>{time}</span>
                 </div>

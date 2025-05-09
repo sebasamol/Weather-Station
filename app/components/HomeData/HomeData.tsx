@@ -23,22 +23,22 @@ async function getData() {
 
 export function HomeDataClient({ data }: { data: any }) {
     return (
-        <div className="max-w-lg mx-auto flex flex-row items-center p-6 bg-white/10 backdrop-blur-md rounded-xl gap-6 border-2 border-white/5 ">
-            <div className="flex flex-row items-center gap-8">
+        <div className="max-w-md mx-auto flex flex-col sm:flex-row items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
+            <div className="flex flex-col sm:flex-row items-center gap-2 sm:gap-6">
                 <Image 
                     src="/home.png" 
-                    alt="Home environment" 
-                    width={40} 
-                    height={40}
-                    className="drop-shadow-lg" 
+                    alt="Home" 
+                    width={24} 
+                    height={24}
+                    className="drop-shadow-md sm:w-[32px] sm:h-[32px]" 
                 />
-                <div className="flex items-center gap-3">
-                    <span className="text-lg font-medium text-gray-200">Temperatura:</span>
-                    <span className="text-3xl font-bold">{Math.round(data.current.temperature_2m)}°C</span>
+                <div className="flex items-center gap-1 sm:gap-2">
+                    <span className="text-sm font-medium text-gray-200">Temperatura:</span>
+                    <span className="text-sm sm:text-xl font-bold">{Math.round(data.current.temperature_2m)}°C</span>
                 </div>
-                <div className="flex items-center gap-3">
-                    <span className="text-lg font-medium text-gray-200">Wilgotność:</span>
-                    <span className="text-3xl font-bold">{Math.round(data.current.relative_humidity_2m)}%</span>
+                <div className="flex items-center gap-1 sm:gap-2">
+                    <span className="text-sm font-medium text-gray-200">Wilgotność:</span>
+                    <span className="text-sm sm:text-xl font-bold">{Math.round(data.current.relative_humidity_2m)}%</span>
                 </div>
             </div>
         </div>
