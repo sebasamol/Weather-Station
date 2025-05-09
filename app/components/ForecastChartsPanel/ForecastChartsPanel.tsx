@@ -2,11 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import HourlyChart from '../HourlyChart/HourlyChart';
 import DoubleHourlyChart from '../DoubleHourlyChart/DoubleHourlyChart';
+import { optionsChart } from '../DoubleHourlyChart/DoubleHourlyChart';
+
 export default function ForecastChartsPanel() {
     const [activeChart, setActiveChart] = useState<number>(0);
     const [chartData, setChartData] = useState<any | null>(null);
     const url: string = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m,uv_index,uv_index_clear_sky&forecast_hours=24"
-    
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -41,8 +43,11 @@ export default function ForecastChartsPanel() {
                                 bgColorFirst="rgba(75, 192, 192, 0.2)"
                                 bgColorSecond="rgba(255, 99, 132, 0.2)"
                                 options={{
+                                    ...optionsChart,
                                     scales: {
+                                        ...optionsChart.scales,
                                         y: {
+                                            ...optionsChart.scales.y,
                                             title: {
                                                 display: true,
                                                 text: '[ °C ]',
@@ -54,7 +59,7 @@ export default function ForecastChartsPanel() {
                                             }
                                         }
                                     }
-                                }} 
+                                }}
                             />
                         )}
                     </div>
@@ -70,8 +75,11 @@ export default function ForecastChartsPanel() {
                                 borderColor="rgba(75, 192, 192, 0.8)"
                                 bgColor="rgba(75, 192, 192, 0.2)"
                                 options={{
+                                    ...optionsChart,
                                     scales: {
+                                        ...optionsChart.scales,
                                         y: {
+                                            ...optionsChart.scales.y,
                                             title: {
                                                 display: true,
                                                 text: '[ % ]',
@@ -83,7 +91,7 @@ export default function ForecastChartsPanel() {
                                             }
                                         }
                                     }
-                                }} 
+                                }}
                             />
                         )}
                     </div>
@@ -103,8 +111,11 @@ export default function ForecastChartsPanel() {
                                 bgColorFirst="rgba(75, 192, 192, 0.2)"
                                 bgColorSecond="rgba(255, 99, 132, 0.2)"
                                 options={{
+                                    ...optionsChart,
                                     scales: {
+                                        ...optionsChart.scales,
                                         y: {
+                                            ...optionsChart.scales.y,
                                             title: {
                                                 display: true,
                                                 text: '[ km/h ]',
@@ -116,7 +127,7 @@ export default function ForecastChartsPanel() {
                                             }
                                         }
                                     }
-                                }} 
+                                }}
                             />
                         )}
                     </div>
@@ -124,16 +135,17 @@ export default function ForecastChartsPanel() {
             case 3:
                 return (
                     <div><DoubleHourlyChart
-                                xKey={chartData.hourly.time}
-                                yKeyFirst={chartData.hourly.uv_index}
-                                yKeySecond={chartData.hourly.uv_index_clear_sky}
-                                labelFirst="Wskaźnik UV"
-                                labelSecond="Wskaźnik UV bez chmur"
-                                borderColorFirst="rgba(75, 192, 192, 0.8)"
-                                borderColorSecond="rgba(255, 99, 132, 0.8)"
-                                bgColorFirst="rgba(75, 192, 192, 0.2)"
-                                bgColorSecond="rgba(255, 99, 132, 0.2)"
-                            /></div>
+                        xKey={chartData.hourly.time}
+                        yKeyFirst={chartData.hourly.uv_index}
+                        yKeySecond={chartData.hourly.uv_index_clear_sky}
+                        labelFirst="Wskaźnik UV"
+                        labelSecond="Wskaźnik UV bez chmur"
+                        borderColorFirst="rgba(75, 192, 192, 0.8)"
+                        borderColorSecond="rgba(255, 99, 132, 0.8)"
+                        bgColorFirst="rgba(75, 192, 192, 0.2)"
+                        bgColorSecond="rgba(255, 99, 132, 0.2)"
+                        
+                    /></div>
                 );
             default:
                 return null;

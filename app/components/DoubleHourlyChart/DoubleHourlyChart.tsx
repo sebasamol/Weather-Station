@@ -1,7 +1,8 @@
 'use client';
 import 'chart.js/auto';
 import { Chart } from 'react-chartjs-2';
-const optionsChart = {
+
+export const optionsChart = {
     responsive: true,
     plugins: {
         legend: {
