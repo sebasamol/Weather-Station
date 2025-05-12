@@ -41,6 +41,9 @@ export function WeatherStatusClient({ data }: { data: any }) {
                 <p className="text-4xl font-bold">
                     {Math.round(data.current.temperature_2m)}°C
                 </p>
+                <p className="text-4xl font-bold">
+                    {Math.round(data.current.relative_humidity_2m)}%
+                </p>
                 <div className="flex flex-col ml-2">
                     <p className="text-xs font-medium">
                         {found.description}

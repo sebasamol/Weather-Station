@@ -152,13 +152,14 @@ export default function ForecastChartsPanel() {
         }
     };
     return (
-        <div className="w-full max-w-4xl mx-auto p-4">
-            <div className="flex border-b border-gray-200">
+        <div className="w-full max-w-full sm:max-w-5xl mx-auto mt-4 sm:mt-6 p-3 sm:p-4 md:p-6 bg-blue-500/10 backdrop-blur-md rounded-lg shadow-lg">
+            <div><p className='text-xl sm:text-2xl font-bold mb-3'>Godzinowa prognoza pogody</p></div>
+            <div className="flex flex-wrap border-b border-gray-200">
                 {['Temperatura', 'Opady', 'Wiatr', 'UV'].map((label, index) => (
                     <div
                         key={index}
-                        className={`px-6 py-3 text-center cursor-pointer transition-colors duration-200 ${activeChart === index
-                            ? 'text-green-600 border-b-2 border-green-600'
+                        className={`px-3 sm:px-6 py-2 sm:py-3 text-center cursor-pointer transition-colors duration-200 text-sm sm:text-base ${activeChart === index
+                            ? 'text-green-600 border-b-2 border-green-600 font-semibold'
                             : 'text-gray-500 hover:text-green-600 hover:bg-green-50'
                             }`}
                         onClick={() => handleTabChange(index)}
@@ -167,7 +168,7 @@ export default function ForecastChartsPanel() {
                     </div>
                 ))}
             </div>
-            <div className="mt-4 p-4  rounded-lg shadow-sm">{renderContent()}</div>
+            c<div className="mt-4 sm:mt-6 p-2 sm:p-4 rounded-lg shadow-sm">{renderContent()}</div>
         </div>
     );
 }

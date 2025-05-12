@@ -82,7 +82,7 @@ export function AirQualityClient({ data }: { data: any }) {
 
     return (
         <div className='max-w-md mx-auto'>
-            <div className='grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-2'>
+            <div className='grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-1'>
                 {AIR_QUALITY_PARAMS.map(param => {
                     const value = data.current[param.key];
                     const color = getColor(param.key, value);
