@@ -7,7 +7,7 @@ import { optionsChart } from '../DoubleHourlyChart/DoubleHourlyChart';
 export default function ForecastChartsPanel() {
     const [activeChart, setActiveChart] = useState<number>(0);
     const [chartData, setChartData] = useState<any | null>(null);
-    const url: string = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m,uv_index,uv_index_clear_sky&forecast_hours=24"
+    const url: string = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&hourly=temperature_2m,apparent_temperature,precipitation_probability,precipitation,wind_speed_10m,wind_gusts_10m,uv_index,uv_index_clear_sky,relative_humidity_2m&forecast_hours=24"
 
     useEffect(() => {
         const fetchData = async () => {
@@ -70,6 +70,38 @@ export default function ForecastChartsPanel() {
                         {chartData && (
                             <HourlyChart
                                 xKey={chartData.hourly.time}
+                                yKey={chartData.hourly.relative_humidity_2m}
+                                label="Wilgotność"
+                                borderColor="rgba(75, 192, 192, 0.8)"
+                                bgColor="rgba(75, 192, 192, 0.2)"
+                                options={{
+                                    ...optionsChart,
+                                    scales: {
+                                        ...optionsChart.scales,
+                                        y: {
+                                            ...optionsChart.scales.y,
+                                            title: {
+                                                display: true,
+                                                text: '[ % ]',
+                                                color: '#354A5F',
+                                                font: {
+                                                    size: 16,
+                                                    weight: 'bold'
+                                                }
+                                            }
+                                        }
+                                    }
+                                }}
+                            />
+                        )}
+                    </div>
+                );
+            case 2:
+                return (
+                    <div>
+                        {chartData && (
+                            <HourlyChart
+                                xKey={chartData.hourly.time}
                                 yKey={chartData.hourly.precipitation_probability}
                                 label="Szansa opadów"
                                 borderColor="rgba(75, 192, 192, 0.8)"
@@ -96,7 +128,7 @@ export default function ForecastChartsPanel() {
                         )}
                     </div>
                 );
-            case 2:
+            case 3:
                 return (
                     <div>
                         {chartData && (
@@ -132,7 +164,7 @@ export default function ForecastChartsPanel() {
                         )}
                     </div>
                 )
-            case 3:
+            case 4:
                 return (
                     <div><DoubleHourlyChart
                         xKey={chartData.hourly.time}
@@ -144,7 +176,7 @@ export default function ForecastChartsPanel() {
                         borderColorSecond="rgba(255, 99, 132, 0.8)"
                         bgColorFirst="rgba(75, 192, 192, 0.2)"
                         bgColorSecond="rgba(255, 99, 132, 0.2)"
-                        
+
                     /></div>
                 );
             default:
@@ -155,7 +187,7 @@ export default function ForecastChartsPanel() {
         <div className="w-full max-w-full sm:max-w-5xl mx-auto mt-4 sm:mt-6 p-3 sm:p-4 md:p-6 bg-blue-500/10 backdrop-blur-md rounded-lg shadow-lg">
             <div><p className='text-xl sm:text-2xl font-bold mb-3'>Godzinowa prognoza pogody</p></div>
             <div className="flex flex-wrap border-b border-gray-200">
-                {['Temperatura', 'Opady', 'Wiatr', 'UV'].map((label, index) => (
+                {['Temperatura', 'Wilgotność', 'Opady', 'Wiatr', 'UV'].map((label, index) => (
                     <div
                         key={index}
                         className={`px-3 sm:px-6 py-2 sm:py-3 text-center cursor-pointer transition-colors duration-200 text-sm sm:text-base ${activeChart === index
