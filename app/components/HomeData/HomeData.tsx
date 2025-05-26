@@ -2,21 +2,21 @@ import React from 'react';
 import Image from 'next/image';
 async function getData() {
     try {
-        if (!process.env.API_CURRENT_WEATHER) {
-            throw new Error('API_CURRENT_WEATHER environment variable is not defined');
+        if (!process.env.API_BME) {
+            throw new Error('API_BME environment variable is not defined');
         }
 
-        const res = await fetch(process.env.API_CURRENT_WEATHER, {
+        const res = await fetch(process.env.API_BME, {
             cache: 'no-store',
         })
 
         if (!res.ok) {
-            throw new Error('Failed to fetch weather data')
+            throw new Error('Failed to fetch home data')
         }
 
         return await res.json()
     } catch (error) {
-        console.error('Error fetching open meteo api:', error)
+        console.error('Error fetching bme data:', error)
         throw error
     }
 }
@@ -35,11 +35,11 @@ export function HomeDataClient({ data }: { data: any }) {
                 <div className="flex flex-row flex-wrap w-full items-center gap-2 sm:gap-4">
                     <div className="flex items-center gap-1 sm:gap-2">
                         <span className="text-sm font-medium text-gray-200">Temperatura:</span>
-                        <span className="text-sm sm:text-xl font-bold">{Math.round(data.current.temperature_2m)}°C</span>
+                        <span className="text-sm sm:text-xl font-bold">{Math.round(data.temperature_C)}°C</span>
                     </div>
                     <div className="flex items-center gap-1 sm:gap-2">
                         <span className="text-sm font-medium text-gray-200">Wilgotność:</span>
-                        <span className="text-sm sm:text-xl font-bold">{Math.round(data.current.relative_humidity_2m)}%</span>
+                        <span className="text-sm sm:text-xl font-bold">{Math.round(data.humidity_percent)}%</span>
                     </div>
                 </div>
             </div>
