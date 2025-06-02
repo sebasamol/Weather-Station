@@ -135,7 +135,7 @@ export default function DoubleHourlyChart({
                 pointHoverBorderColor: '#8E44AD',
                 data: formattedYKeyFirst,
                 tension: 0.3,
-                pointRadius: 5.5,
+                pointRadius: windowWidth < 768 ? 4.5 : 6.5,
             },
             {
                 label: labelSecond,
@@ -147,7 +147,7 @@ export default function DoubleHourlyChart({
                 pointHoverBorderColor: '#8E44AD',
                 data: formattedYKeySecond,
                 tension: 0.3,
-                pointRadius: 5.5,
+                pointRadius: windowWidth < 768 ? 4.5 : 6.5,
             }
 
         ],

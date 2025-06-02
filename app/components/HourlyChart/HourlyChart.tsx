@@ -1,5 +1,6 @@
 'use client';
 import 'chart.js/auto';
+import { useEffect, useState } from 'react';
 import { Chart } from 'react-chartjs-2';
 const optionsChart = {
     responsive: true,
@@ -71,6 +72,17 @@ export default function HourlyChart({ label, borderColor, bgColor, xKey, yKey, o
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         })
         : [];
+    const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
+    }, []);
+
 
     const formattedYKey = Array.isArray(yKey)
         ? yKey.map((value: string | number) => {
@@ -94,17 +106,21 @@ export default function HourlyChart({ label, borderColor, bgColor, xKey, yKey, o
                 pointHoverBorderColor: '#8E44AD',
                 data: formattedYKey,
                 tension: 0.3,
-                pointRadius: 5.5,
+                pointRadius: windowWidth < 768 ? 4.5 : 6.5,
             },
         ],
     };
 
     return (
-        <div>
+        <div className='w-full h-[400px] sm:h-[400px] md:h-[500px]'>
             <Chart
                 type="line"
                 data={data}
-                options={options}
+                options={{
+                    ...options,
+                    responsive: true,
+                    maintainAspectRatio: false
+                }} 
             />
         </div>
     );

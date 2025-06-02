@@ -185,14 +185,14 @@ export default function ForecastChartsPanel() {
     };
     return (
         <div className="w-full max-w-full sm:max-w-5xl mx-auto mt-4 sm:mt-6 p-3 sm:p-4 md:p-6 bg-blue-500/10 backdrop-blur-md rounded-lg shadow-lg">
-            <div><p className='text-xl sm:text-2xl font-bold mb-3'>Godzinowa prognoza pogody</p></div>
+            <div><p className='text-base sm:text-xl md:text-2xl font-bold mb-3'>Godzinowa prognoza pogody</p></div>
             <div className="flex flex-wrap border-b border-gray-200">
                 {['Temperatura', 'Wilgotność', 'Opady', 'Wiatr', 'UV'].map((label, index) => (
                     <div
                         key={index}
                         className={`px-3 sm:px-6 py-2 sm:py-3 text-center cursor-pointer transition-colors duration-200 text-sm sm:text-base ${activeChart === index
-                            ? 'text-green-600 border-b-2 border-green-600 font-semibold'
-                            : 'text-gray-500 hover:text-green-600 hover:bg-green-50'
+                            ? 'text-green-300 border-b-2 border-green-600 font-semibold'
+                            : 'text-gray-400 hover:text-green-600 hover:bg-green-50'
                             }`}
                         onClick={() => handleTabChange(index)}
                     >

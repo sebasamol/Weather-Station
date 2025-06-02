@@ -48,7 +48,7 @@ export function WeatherStatusClient({ data }: { data: any }) {
                     <p className="text-xs font-medium">
                         {found.description}
                     </p>
-                    <p className="text-[12px] text-gray-300">
+                    <p className="text-[8px] text-gray-300">
                         Temperatura odczuwalna {Math.round(data.current.apparent_temperature)}°C
                     </p>
                 </div>

@@ -92,9 +92,7 @@ export function AirQualityClient({ data }: { data: any }) {
                             <div className='flex flex-col gap-0.5'>
                                 <div className='flex items-center gap-1 sm:gap-2'>
                                     <span className='text-xs sm:text-s font-medium'>{param.name}</span>
-                                    <span className='cursor-help'>
-                                        <Image src={'/question.png'} alt='info' width={12} height={12} className='sm:w-4 sm:h-4' />
-                                    </span>
+                                    
                                 </div>
                                 <div className='flex items-baseline gap-1'>
                                     <span className='text-[14px] sm:text-[16px] font-bold' style={{ color }}>{value}</span>
