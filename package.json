@@ -7,11 +7,14 @@
     "build": "next build",
     "start": "next start ",
     "lint": "next lint",
-    "ssr": "node ./app/server.ts"
+    "ssr": "node ./app/server.ts",
+    "worker": "ts-node lib/redis/worker.ts"
   },
   "dependencies": {
     "bcrypt": "^5.1.1",
+    "bullmq": "^5.56.0",
     "express": "^4.21.2",
+    "ioredis": "^5.6.1",
     "next": "15.3.2",
     "pg": "^8.13.3",
     "react": "19.1.0",
