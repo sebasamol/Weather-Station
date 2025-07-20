@@ -27,10 +27,11 @@ const optionsChart = {
                 display: true,
                 drawOnChartArea: true,
                 drawTicks: true,
-                color: "rgba(176, 199, 209, 0.2)", // Made more transparent
+                color: "rgba(209, 196, 176, 0.2)",
+                borderDash: [5, 5] // Made more transparent
             },
             ticks: {
-                color: "#4A6279",
+                color: "#FFFFFF", // X-axis color (white)
                 size: 16,
                 stepSize: 1,
             }
@@ -43,11 +44,11 @@ const optionsChart = {
                 display: true,
                 drawOnChartArea: true,
                 drawTicks: true,
-                color: "rgba(176, 199, 209, 0.2)", // Made more transparent
+                color: "rgba(198, 209, 176, 0.2)", // Made more transparent
                 borderDash: [5, 5]
             },
             ticks: {
-                color: '#4A6279',
+                color: '#00FF00', // Y-axis color (green)
                 size: 16,
                 stepSize: 1,
             }
@@ -64,7 +65,7 @@ interface HourlyChartHomeProps {
     options?: object;
 }
 
-export default function HourlyChartHome({ label, borderColor, bgColor, xKey, yKey, options = optionsChart }: HourlyChartHomeProps) {
+export default function HourlyChartHome({ label, borderColor, bgColor, xKey, yKey, options }: HourlyChartHomeProps) {
 
     
     const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 0);
@@ -112,6 +113,7 @@ export default function HourlyChartHome({ label, borderColor, bgColor, xKey, yKe
                 type="line"
                 data={data}
                 options={{
+                    ...optionsChart,
                     ...options,
                     responsive: true,
                     maintainAspectRatio: false

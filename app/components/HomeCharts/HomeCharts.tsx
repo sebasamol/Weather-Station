@@ -58,7 +58,7 @@ export default function HomeCharts() {
     }
 
     return (
-        <div className="max-w- mx-auto flex flex-col  items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
+        <div className="max-w mx-auto bg-blue-500/10 backdrop-blur-md flex flex-col  items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
             <HourlyChartHome 
                 xKey={data.timestamp}
                 yKey={data.temperature}
@@ -69,8 +69,19 @@ export default function HomeCharts() {
                     ...optionsChart,
                     scales: {
                         ...optionsChart.scales,
+                        x: {
+                            ...optionsChart.scales.x,
+                            ticks: {
+                                ...optionsChart.scales.x.ticks,
+                                color: "#FFFFFF", // X-axis color (white)
+                            }
+                        },
                         y: {
                             ...optionsChart.scales.y,
+                            ticks: {
+                                ...optionsChart.scales.y.ticks,
+                                color: "#00FF00", // Y-axis color (green)
+                            },
                             title: {
                                 display: true,
                                 text: '[ °C ]',
@@ -94,8 +105,19 @@ export default function HomeCharts() {
                     ...optionsChart,
                     scales: {
                         ...optionsChart.scales,
+                        x: {
+                            ...optionsChart.scales.x,
+                            ticks: {
+                                ...optionsChart.scales.x.ticks,
+                                color: "#FFFFFF", // X-axis color (white)
+                            }
+                        },
                         y: {
                             ...optionsChart.scales.y,
+                            ticks: {
+                                ...optionsChart.scales.y.ticks,
+                                color: "#00FF00", // Y-axis color (green)
+                            },
                             title: {
                                 display: true,
                                 text: '[ % ]',
@@ -119,8 +141,19 @@ export default function HomeCharts() {
                     ...optionsChart,
                     scales: {
                         ...optionsChart.scales,
+                        x: {
+                            ...optionsChart.scales.x,
+                            ticks: {
+                                ...optionsChart.scales.x.ticks,
+                                color: "#FFFFFF", // X-axis color (white)
+                            }
+                        },
                         y: {
                             ...optionsChart.scales.y,
+                            ticks: {
+                                ...optionsChart.scales.y.ticks,
+                                color: "#00FF00", // Y-axis color (green)
+                            },
                             title: {
                                 display: true,
                                 text: '[ hPa ]',

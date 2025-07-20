@@ -46,8 +46,19 @@ export default function ForecastChartsPanel() {
                                     ...optionsChart,
                                     scales: {
                                         ...optionsChart.scales,
+                                        x: {
+                                            ...optionsChart.scales.x,
+                                            ticks: {
+                                                ...optionsChart.scales.x.ticks,
+                                                color: "#FFFFFF", // X-axis color (white)
+                                            }
+                                        },
                                         y: {
                                             ...optionsChart.scales.y,
+                                            ticks: {
+                                                ...optionsChart.scales.y.ticks,
+                                                color: "#00FF00", // Y-axis color (green)
+                                            },
                                             title: {
                                                 display: true,
                                                 text: '[ °C ]',
@@ -78,8 +89,19 @@ export default function ForecastChartsPanel() {
                                     ...optionsChart,
                                     scales: {
                                         ...optionsChart.scales,
+                                        x: {
+                                            ...optionsChart.scales.x,
+                                            ticks: {
+                                                ...optionsChart.scales.x.ticks,
+                                                color: "#FFFFFF", // X-axis color (white)
+                                            }
+                                        },
                                         y: {
                                             ...optionsChart.scales.y,
+                                            ticks: {
+                                                ...optionsChart.scales.y.ticks,
+                                                color: "#00FF00", // Y-axis color (green)
+                                            },
                                             title: {
                                                 display: true,
                                                 text: '[ % ]',
@@ -110,8 +132,19 @@ export default function ForecastChartsPanel() {
                                     ...optionsChart,
                                     scales: {
                                         ...optionsChart.scales,
+                                        x: {
+                                            ...optionsChart.scales.x,
+                                            ticks: {
+                                                ...optionsChart.scales.x.ticks,
+                                                color: "#FFFFFF", 
+                                            }
+                                        },
                                         y: {
                                             ...optionsChart.scales.y,
+                                            ticks: {
+                                                ...optionsChart.scales.y.ticks,
+                                                color: "#00FF00", 
+                                            },
                                             title: {
                                                 display: true,
                                                 text: '[ % ]',
@@ -146,8 +179,19 @@ export default function ForecastChartsPanel() {
                                     ...optionsChart,
                                     scales: {
                                         ...optionsChart.scales,
+                                        x: {
+                                            ...optionsChart.scales.x,
+                                            ticks: {
+                                                ...optionsChart.scales.x.ticks,
+                                                color: "#FFFFFF", // X-axis color (white)
+                                            }
+                                        },
                                         y: {
                                             ...optionsChart.scales.y,
+                                            ticks: {
+                                                ...optionsChart.scales.y.ticks,
+                                                color: "#00FF00", // Y-axis color (green)
+                                            },
                                             title: {
                                                 display: true,
                                                 text: '[ km/h ]',
@@ -176,7 +220,26 @@ export default function ForecastChartsPanel() {
                         borderColorSecond="rgba(255, 99, 132, 0.8)"
                         bgColorFirst="rgba(75, 192, 192, 0.2)"
                         bgColorSecond="rgba(255, 99, 132, 0.2)"
-
+                        options={{
+                            ...optionsChart,
+                            scales: {
+                                ...optionsChart.scales,
+                                x: {
+                                    ...optionsChart.scales.x,
+                                    ticks: {
+                                        ...optionsChart.scales.x.ticks,
+                                        color: "#FFFFFF", // X-axis color (white)
+                                    }
+                                },
+                                y: {
+                                    ...optionsChart.scales.y,
+                                    ticks: {
+                                        ...optionsChart.scales.y.ticks,
+                                        color: "#00FF00", // Y-axis color (green)
+                                    }
+                                }
+                            }
+                        }}
                     /></div>
                 );
             default:
