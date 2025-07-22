@@ -35,138 +35,195 @@ export default function HomeCharts() {
 
     if (loading) {
         return (
-            <div className="max-w-md mx-auto flex flex-col items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
-                <div className="text-white">Loading...</div>
+            <div className="w-full max-w-sm sm:max-w-md mx-auto flex flex-col items-center p-2 sm:p-3 md:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
+                <div className="text-white text-sm sm:text-base">Loading...</div>
             </div>
         );
     }
 
     if (error) {
         return (
-            <div className="max-w-md mx-auto flex flex-col items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
-                <div className="text-red-400">Error: {error}</div>
+            <div className="w-full max-w-sm sm:max-w-md mx-auto flex flex-col items-center p-2 sm:p-3 md:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
+                <div className="text-red-400 text-sm sm:text-base">Error: {error}</div>
             </div>
         );
     }
 
     if (!data) {
         return (
-            <div className="max-w-md mx-auto flex flex-col items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
-                <div className="text-white">No data available</div>
+            <div className="w-full max-w-sm sm:max-w-md mx-auto flex flex-col items-center p-2 sm:p-3 md:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
+                <div className="text-white text-sm sm:text-base">No data available</div>
             </div>
         );
     }
 
     return (
-        <div className="max-w mx-auto bg-blue-500/10 backdrop-blur-md flex flex-col  items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
-            <HourlyChartHome 
-                xKey={data.timestamp}
-                yKey={data.temperature}
-                label="Temperatura"
-                borderColor="rgba(75, 192, 192, 0.8)"
-                bgColor="rgba(75, 192, 192, 0.2)"
-                options={{
-                    ...optionsChart,
-                    scales: {
-                        ...optionsChart.scales,
-                        x: {
-                            ...optionsChart.scales.x,
-                            ticks: {
-                                ...optionsChart.scales.x.ticks,
-                                color: "#FFFFFF", // X-axis color (white)
-                            }
-                        },
-                        y: {
-                            ...optionsChart.scales.y,
-                            ticks: {
-                                ...optionsChart.scales.y.ticks,
-                                color: "#00FF00", // Y-axis color (green)
+        <div className="w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[80%] mx-auto bg-blue-500/10 backdrop-blur-md flex flex-col items-center p-2 sm:p-3 md:p-4 rounded-lg border border-white/5">
+            <div className="w-full mb-4 sm:mb-6 md:mb-8">
+                <HourlyChartHome 
+                    xKey={data.timestamp}
+                    yKey={data.temperature}
+                    label="Temperatura"
+                    borderColor="rgba(75, 192, 192, 0.8)"
+                    bgColor="rgba(75, 192, 192, 0.2)"
+                    options={{
+                        ...optionsChart,
+                        maintainAspectRatio: true,
+                        responsive: true,
+                        scales: {
+                            ...optionsChart.scales,
+                            x: {
+                                ...optionsChart.scales.x,
+                                ticks: {
+                                    ...optionsChart.scales.x.ticks,
+                                    color: "#FFFFFF",
+                                    font: {
+                                        size: 10,
+                                        '@media (min-width: 640px)': {
+                                            size: 12
+                                        }
+                                    }
+                                }
                             },
-                            title: {
-                                display: true,
-                                text: '[ °C ]',
-                                color: '#4A6279',
-                                font: {
-                                    size: 16,
-                                    weight: 'bold'
+                            y: {
+                                ...optionsChart.scales.y,
+                                ticks: {
+                                    ...optionsChart.scales.y.ticks,
+                                    color: "#00FF00",
+                                    font: {
+                                        size: 10,
+                                        '@media (min-width: 640px)': {
+                                            size: 12
+                                        }
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: '[ °C ]',
+                                    color: '#4A6279',
+                                    font: {
+                                        size: 12,
+                                        weight: 'bold',
+                                        '@media (min-width: 640px)': {
+                                            size: 16
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                }}
-            />
-            <HourlyChartHome 
-                xKey={data.timestamp}
-                yKey={data.humidity}
-                label="Wilgotność"
-                borderColor="rgba(75, 192, 192, 0.8)"
-                bgColor="rgba(75, 192, 192, 0.2)"
-                options={{
-                    ...optionsChart,
-                    scales: {
-                        ...optionsChart.scales,
-                        x: {
-                            ...optionsChart.scales.x,
-                            ticks: {
-                                ...optionsChart.scales.x.ticks,
-                                color: "#FFFFFF", // X-axis color (white)
-                            }
-                        },
-                        y: {
-                            ...optionsChart.scales.y,
-                            ticks: {
-                                ...optionsChart.scales.y.ticks,
-                                color: "#00FF00", // Y-axis color (green)
+                    }}
+                />
+            </div>
+            <div className="w-full mb-4 sm:mb-6 md:mb-8">
+                <HourlyChartHome 
+                    xKey={data.timestamp}
+                    yKey={data.humidity}
+                    label="Wilgotność"
+                    borderColor="rgba(75, 192, 192, 0.8)"
+                    bgColor="rgba(75, 192, 192, 0.2)"
+                    options={{
+                        ...optionsChart,
+                        maintainAspectRatio: true,
+                        responsive: true,
+                        scales: {
+                            ...optionsChart.scales,
+                            x: {
+                                ...optionsChart.scales.x,
+                                ticks: {
+                                    ...optionsChart.scales.x.ticks,
+                                    color: "#FFFFFF",
+                                    font: {
+                                        size: 10,
+                                        '@media (min-width: 640px)': {
+                                            size: 12
+                                        }
+                                    }
+                                }
                             },
-                            title: {
-                                display: true,
-                                text: '[ % ]',
-                                color: '#4A6279',
-                                font: {
-                                    size: 16,
-                                    weight: 'bold'
+                            y: {
+                                ...optionsChart.scales.y,
+                                ticks: {
+                                    ...optionsChart.scales.y.ticks,
+                                    color: "#00FF00",
+                                    font: {
+                                        size: 10,
+                                        '@media (min-width: 640px)': {
+                                            size: 12
+                                        }
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: '[ % ]',
+                                    color: '#4A6279',
+                                    font: {
+                                        size: 12,
+                                        weight: 'bold',
+                                        '@media (min-width: 640px)': {
+                                            size: 16
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                }}
-            />
-            <HourlyChartHome 
-                xKey={data.timestamp}
-                yKey={data.pressure}
-                label="Ciśnienie"
-                borderColor="rgba(75, 192, 192, 0.8)"
-                bgColor="rgba(75, 192, 192, 0.2)"
-                options={{
-                    ...optionsChart,
-                    scales: {
-                        ...optionsChart.scales,
-                        x: {
-                            ...optionsChart.scales.x,
-                            ticks: {
-                                ...optionsChart.scales.x.ticks,
-                                color: "#FFFFFF", // X-axis color (white)
-                            }
-                        },
-                        y: {
-                            ...optionsChart.scales.y,
-                            ticks: {
-                                ...optionsChart.scales.y.ticks,
-                                color: "#00FF00", // Y-axis color (green)
+                    }}
+                />
+            </div>
+            <div className="w-full">
+                <HourlyChartHome 
+                    xKey={data.timestamp}
+                    yKey={data.pressure}
+                    label="Ciśnienie"
+                    borderColor="rgba(75, 192, 192, 0.8)"
+                    bgColor="rgba(75, 192, 192, 0.2)"
+                    options={{
+                        ...optionsChart,
+                        maintainAspectRatio: true,
+                        responsive: true,
+                        scales: {
+                            ...optionsChart.scales,
+                            x: {
+                                ...optionsChart.scales.x,
+                                ticks: {
+                                    ...optionsChart.scales.x.ticks,
+                                    color: "#FFFFFF",
+                                    font: {
+                                        size: 10,
+                                        '@media (min-width: 640px)': {
+                                            size: 12
+                                        }
+                                    }
+                                }
                             },
-                            title: {
-                                display: true,
-                                text: '[ hPa ]',
-                                color: '#4A6279',
-                                font: {
-                                    size: 18,
-                                    weight: 'bold'
+                            y: {
+                                ...optionsChart.scales.y,
+                                ticks: {
+                                    ...optionsChart.scales.y.ticks,
+                                    color: "#00FF00",
+                                    font: {
+                                        size: 10,
+                                        '@media (min-width: 640px)': {
+                                            size: 12
+                                        }
+                                    }
+                                },
+                                title: {
+                                    display: true,
+                                    text: '[ hPa ]',
+                                    color: '#4A6279',
+                                    font: {
+                                        size: 12,
+                                        weight: 'bold',
+                                        '@media (min-width: 640px)': {
+                                            size: 18
+                                        }
+                                    }
                                 }
                             }
                         }
-                    }
-                }}
-            />
+                    }}
+                />
+            </div>
         </div>
     )
 }

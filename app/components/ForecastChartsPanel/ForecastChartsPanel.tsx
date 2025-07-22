@@ -30,7 +30,7 @@ export default function ForecastChartsPanel() {
         switch (activeChart) {
             case 0:
                 return (
-                    <div>
+                    <div className="pb-8">
                         {chartData && (
                             <DoubleHourlyChart
                                 xKey={chartData.hourly.time}
@@ -77,7 +77,7 @@ export default function ForecastChartsPanel() {
                 );
             case 1:
                 return (
-                    <div>
+                    <div className="pb-8">
                         {chartData && (
                             <HourlyChart
                                 xKey={chartData.hourly.time}
@@ -120,7 +120,7 @@ export default function ForecastChartsPanel() {
                 );
             case 2:
                 return (
-                    <div>
+                    <div className="pb-8">
                         {chartData && (
                             <HourlyChart
                                 xKey={chartData.hourly.time}
@@ -163,7 +163,7 @@ export default function ForecastChartsPanel() {
                 );
             case 3:
                 return (
-                    <div>
+                    <div className="pb-8">
                         {chartData && (
                             <DoubleHourlyChart
                                 xKey={chartData.hourly.time}
@@ -210,7 +210,7 @@ export default function ForecastChartsPanel() {
                 )
             case 4:
                 return (
-                    <div><DoubleHourlyChart
+                    <div className="pb-8"><DoubleHourlyChart
                         xKey={chartData.hourly.time}
                         yKeyFirst={chartData.hourly.uv_index}
                         yKeySecond={chartData.hourly.uv_index_clear_sky}
@@ -263,7 +263,9 @@ export default function ForecastChartsPanel() {
                     </div>
                 ))}
             </div>
-            c<div className="mt-4 sm:mt-6 p-2 sm:p-4 rounded-lg shadow-sm">{renderContent()}</div>
+            <div className="mt-4 sm:mt-6 p-2 sm:p-4 rounded-lg shadow-sm">
+                {renderContent()}
+            </div>
         </div>
     );
 }
