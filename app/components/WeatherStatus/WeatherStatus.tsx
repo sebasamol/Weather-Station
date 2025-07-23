@@ -38,17 +38,17 @@ export function WeatherStatusClient({ data }: { data: any }) {
                     height={48} 
                     className="drop-shadow-lg"
                 />
-                <p className="text-4xl font-bold">
+                <p className="text-3xl font-bold">
                     {Math.round(data.current.temperature_2m)}°C
                 </p>
-                <p className="text-4xl font-bold">
+                <p className="text-3xl font-bold">
                     {Math.round(data.current.relative_humidity_2m)}%
                 </p>
                 <div className="flex flex-col ml-2">
-                    <p className="text-xs font-medium">
+                    <p className="text-[12px]  font-medium">
                         {found.description}
                     </p>
-                    <p className="text-[8px] text-gray-300">
+                    <p className="text-[9px] text-gray-300">
                         Temperatura odczuwalna {Math.round(data.current.apparent_temperature)}°C
                     </p>
                 </div>
