@@ -28,7 +28,7 @@ export default function DailyForecastBox({ date, weather_code, temperature_min, 
                         {temperature_min}°C
                     </div>
                 </div>
-                <div className='flex items-center gap-0.5 sm:gap-1 text-[10px] sm:text-xs'>
+                <div className='flex items-center text-[10px] sm:text-xs'>
                     <Image src="/chance_rain.png" alt="rain" width={12} height={12} className="sm:w-4 sm:h-4" />
                     {precipitation}%
                 </div>

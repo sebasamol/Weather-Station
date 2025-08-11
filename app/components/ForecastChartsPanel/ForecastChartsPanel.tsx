@@ -248,7 +248,7 @@ export default function ForecastChartsPanel() {
     };
     return (
         <div className="w-full max-w-full sm:max-w-5xl mx-auto mt-4 sm:mt-6 p-3 sm:p-4 md:p-6 bg-blue-500/10 backdrop-blur-md rounded-lg shadow-lg">
-            <div><p className='text-base sm:text-xl md:text-2xl font-bold mb-3'>Godzinowa prognoza pogody</p></div>
+            <div><p className='text-base sm:text-[14px] md:text-l font-bold mb-3'>Godzinowa prognoza pogody</p></div>
             <div className="flex flex-wrap border-b border-gray-200">
                 {['Temperatura', 'Wilgotność', 'Opady', 'Wiatr', 'UV'].map((label, index) => (
                     <div

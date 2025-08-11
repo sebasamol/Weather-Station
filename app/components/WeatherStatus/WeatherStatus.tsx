@@ -30,25 +30,25 @@ export function WeatherStatusClient({ data }: { data: any }) {
     }
 
     return (
-            <div className="max-w-lg mx-auto flex flex-row items-center p-4 bg-white/10 backdrop-blur-md rounded-lg gap-3 border-2 border-white/5">
+            <div className="max-w-lg mx-auto flex flex-row items-center p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 border-2 border-white/5">
                 <Image 
                     src={found.icon} 
                     alt="Weather station" 
-                    width={48} 
-                    height={48} 
+                    width={42} 
+                    height={42} 
                     className="drop-shadow-lg"
                 />
-                <p className="text-3xl font-bold">
+                <p className="text-xl sm:text-3xl font-bold">
                     {Math.round(data.current.temperature_2m)}°C
                 </p>
-                <p className="text-3xl font-bold">
+                <p className="text-xl sm:text-3xl font-bold">
                     {Math.round(data.current.relative_humidity_2m)}%
                 </p>
-                <div className="flex flex-col ml-2">
-                    <p className="text-[12px]  font-medium">
+                <div className="flex flex-col ml-1 sm:ml-2">
+                    <p className="text-[10px] sm:text-[12px] ">
                         {found.description}
                     </p>
-                    <p className="text-[9px] text-gray-300">
+                    <p className="text-[8px] text-gray-300 sm:text-[10px]">
                         Temperatura odczuwalna {Math.round(data.current.apparent_temperature)}°C
                     </p>
                 </div>

@@ -91,12 +91,12 @@ export function AirQualityClient({ data }: { data: any }) {
                         <div key={param.id} className='bg-white/10 backdrop-blur-md rounded-lg p-2 w-full border-2 border-white/5'>
                             <div className='flex flex-col gap-0.5'>
                                 <div className='flex items-center gap-1 sm:gap-2'>
-                                    <span className='text-xs sm:text-s font-medium'>{param.name}</span>
+                                    <span className='text-[10px] sm:text-s font-medium'>{param.name}</span>
                                     
                                 </div>
                                 <div className='flex items-baseline gap-1'>
-                                    <span className='text-[14px] sm:text-[16px] font-bold' style={{ color }}>{value}</span>
-                                    <span className='text-[10px] sm:text-[12px] text-gray-300'>{param.unit}</span>
+                                    <span className='text-[12px] sm:text-[16px] font-bold' style={{ color }}>{value}</span>
+                                    <span className='text-[8px] sm:text-[12px] text-gray-300'>{param.unit}</span>
                                 </div>
                             </div>
                         </div>

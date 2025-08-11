@@ -23,24 +23,24 @@ async function getData() {
 
 export function HomeDataClient({ data }: { data: any }) {
     return (
-        <div className="max-w-md mx-auto flex flex-col  items-center p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
-            <div className="flex flex-row items-center gap-2 sm:gap-4 w-full">
+        <div className="max-w-md mx-auto flex flex-col p-3 sm:p-4 bg-white/10 backdrop-blur-md rounded-lg gap-2 sm:gap-4 border border-white/5">
+            <div className="flex items-center justify-between gap-2 sm:gap-4 w-full">
                 <Image
                     src="/home.png"
                     alt="Home"
-                    width={24}
-                    height={24}
-                    className="drop-shadow-md sm:w-[32px] sm:h-[32px]"
+                    width={18}
+                    height={18}
+                    className="drop-shadow-md sm:w-[32px] sm:h-[32px] flex-shrink-0"
                 />
-                <div className="flex flex-row flex-wrap w-full items-center gap-2 sm:gap-4">
+                <div className="flex flex-1 flex-wrap items-center gap-2 sm:gap-4">
                     <div className="flex items-center gap-1 sm:gap-2">
-                        <span className="text-sm font-medium text-gray-200">Temperatura:</span>
-                        <span className="text-sm sm:text-xl font-bold">{Math.round(data.temperature)}°C</span>
+                        <span className="text-xs sm:text-[14px] font-medium text-gray-200 whitespace-nowrap">Temperatura:</span>
+                        <span className="text-xs sm:text-[18px] font-bold">{Math.round(data.temperature)}°C</span>
                     </div>
                     <div className="flex items-center gap-1 sm:gap-2">
-                        <span className="text-sm font-medium text-gray-200">Wilgotność:</span>
-                        <span className="text-sm sm:text-xl font-bold">{Math.round(data.humidity)}%</span>
-                        <div>
+                        <span className="text-xs sm:text-[14px] font-medium text-gray-200 whitespace-nowrap">Wilgotność:</span>
+                        <span className="text-xs sm:text-[18px] font-bold">{Math.round(data.humidity)}%</span>
+                        <div className="flex-shrink-0">
                             <a href="/home-data">
                                 <Image 
                                     src="/redirect.png" 
@@ -52,7 +52,6 @@ export function HomeDataClient({ data }: { data: any }) {
                             </a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
